@@ -35,3 +35,14 @@ function movies_theme_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'movies_theme_pingback_header' );
+
+/**
+ * Register menu locations.
+ * 
+ * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+ * 
+ */
+function register_menu() {
+	register_nav_menu('primary',__( 'Primary' ));
+}
+add_action( 'init', 'register_menu' );

@@ -1,70 +1,79 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# Movies Theme
+A simple and elegant WordPress theme perfect for movie enthusiasts and bloggers.
 
-_s
-===
+## Features
+- Fully responsive design
+- Customizable homepage with featured movies and latest reviews
+- Built-in movie review functionality
+- Easy integration with the TMDB API for movie information and poster images
+- Customizable color scheme
+- Compatible with the latest version of WordPress
+- Translation ready
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+## Installation
+1. Download the theme files from GitHub or WordPress repository
+2. Go to Appearance > Themes in your WordPress dashboard
+3. Click on the Add New button
+4. Click on the Upload Theme button
+5. Click on the Choose File button and select the theme zip file
+6. Click on the Install Now button
+7. Once the installation is complete, click on the Activate link
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
-
-* A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-Note: `.no-sidebar` styles are automatically loaded.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
-
-Installation
----------------
-
-### Requirements
-
-`_s` requires the following dependencies:
-
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
-
-### Quick Start
-
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
-
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
-
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
-
-### Setup
-
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
+## Setup
+1. Go to Appearance > Customize in your WordPress dashboard
+2. Select the Movies Theme options
+3. Set up your homepage with featured movies and latest reviews
+4. Configure the TMDB API settings to display movie information and poster images
+5. Customize the color scheme and other options
+6. To start using all the tools that come with `Movies Theme`  you need to install the necessary Node.js and Composer dependencies :
 
 ```sh
 $ composer install
 $ npm install
 ```
+## Usage
+1. Create a new movie review by going to Posts > Add New in your WordPress dashboard
+2. Select the movie review post format
+3. Enter the movie title and information
+4. Enter your review and rating
+5. Publish your review
+
+## Support
+If you encounter any issues or need assistance, please open an issue on the [GitHub repository](https://github.com/Gergab00/movie-plugin) or contact us via our [mail](contact@gerardo-gonzalez.dev).
+
+## Contribution
+We welcome any contributions to the plugin, please fork the repository and submit a pull request with your changes.
+
+### Requirements
+
+`Movie Theme` requires the following dependencies:
+
+- [Node.js](https://nodejs.org/)
+- [Composer](https://getcomposer.org/)
 
 ### Available CLI commands
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
+`Movies Theme` comes packed with CLI commands tailored for WordPress theme development :
 
 - `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
 - `composer lint:php` : checks all PHP files for syntax errors.
 - `composer make-pot` : generates a .pot file in the `languages/` directory.
 - `npm run compile:css` : compiles SASS files to css.
 - `npm run compile:rtl` : generates an RTL stylesheet.
+- `npm run copy-assets` : this script is responsible for copying the resources or assets necessary for the project from the "src/build" folder to the main folder of the project.
 - `npm run watch` : watches all SASS files and recompiles them to css when they change.
 - `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
 - `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
 - `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+## License
+This plugin is licensed under the GPLv2 license.
 
-Good luck!
+## Changelog
+- 1.0.0 - Initial release
+
+## Author
+[Gerardo Gabriel Gonzalez Velazquez](https://gerardo-gonzalez.dev)
+
+## Disclaimer
+The Movies Theme is not affiliated with or endorsed by the TMDB API. The TMDB API is a trademark of The Movie Database, LLC.

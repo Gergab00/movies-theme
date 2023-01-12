@@ -17,9 +17,15 @@
     "url": "https://github.com/Automattic/movies_theme/issues"
   },
   "devDependencies": {
+    "@rollup/plugin-babel": "^5.0.0",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "@rollup/plugin-multi-entry": "^6.0.0",
     "@wordpress/scripts": "^19.2.2",
     "dir-archiver": "^1.1.1",
     "node-sass": "^7.0.1",
+    "path": "^0.12.7",
     "rtlcss": "^3.5.0"
   },
   "rtlcssConfig": {
@@ -36,11 +42,16 @@
     "map": false
   },
   "scripts": {
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "watch": "node-sass src/sass/ -o ./css/ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "compile:css": "node-sass src/sass/ -o ./css/ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",
+    "copy-assets": "node src/build/copy-assets.js",
+    "js-compile": "rollup --config src/build/rollup.config.js --sourcemap",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "bundle": "dir-archiver --src . --dest ../movies_theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3"
   }
 }
