@@ -46,3 +46,24 @@ function register_menu() {
 	register_nav_menu('primary',__( 'Primary' ));
 }
 add_action( 'init', 'register_menu' );
+
+// Filter custom logo with correct classes.
+add_filter( 'get_custom_logo', 'theme_change_logo_class' );
+
+if ( ! function_exists( 'theme_change_logo_class' ) ) {
+	/**
+	 * Replaces logo CSS class.
+	 *
+	 * @param string $html Markup.
+	 *
+	 * @return string
+	 */
+	function theme_change_logo_class( $html ) {
+
+		$html = str_replace( 'class="custom-logo"', 'class="img-fluid"', $html );
+		$html = str_replace( 'class="custom-logo-link"', 'class="navbar-brand custom-logo-link"', $html );
+		$html = str_replace( 'alt=""', 'title="Home" alt="logo"', $html );
+
+		return $html;
+	}
+}

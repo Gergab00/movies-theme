@@ -2,74 +2,88 @@
 /**
  * The header for our theme
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * Displays all of the <head> section and everything up till <div id="content">
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package movies_theme
  */
 
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
-    <div id="page bg-dark text-white" class="site">
-        <a class="skip-link screen-reader-text"
-            href="#primary"><?php esc_html_e( 'Skip to content', 'movies_theme' ); ?></a>
+    <?php do_action('wp_body_open'); ?>
+    <div class="site bg-dark bg-gradient text-white" id="header">
 
-        <header id="masthead" class="site-header">
-            <div class="site-branding">
-                <?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-                        rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                <?php
-			else :
-				?>
-                <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-                        rel="home"><?php bloginfo( 'name' ); ?></a></p>
-                <?php
-			endif;
-			$movies_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $movies_theme_description || is_customize_preview() ) :
-				?>
-                <p class="site-description">
-                    <?php echo $movies_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                </p>
-                <?php endif; ?>
-            </div><!-- .site-branding -->
+        <!-- ******************* The Navbar Area ******************* -->
+        <header id="wrapper-navbar">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            <nav id="main-nav" class="navbar navbar-expand-md navbar-dark bg-primary" aria-labelledby="main-nav-label">
+
+                <h2 id="main-nav-label" class="screen-reader-text">
+                    <?php esc_html_e('Main Navigation', 'movie-theme'); ?>
+                </h2>
+
+
+                <div class="container-fluid" id="wrapper-container-navbar">
+
+                    <!-- Your site branding in the menu -->
+                    <?php if (!has_custom_logo()) { ?>
+
+                    <?php if (is_front_page() && is_home()): ?>
+
+                    <h1 class="navbar-brand text-white mb-0">
+                        <a rel="home" href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
+                            <?php bloginfo('name'); ?>
+                        </a>
+                    </h1>
+
+                    <?php else: ?>
+
+                    <a class="navbar-brand" rel="home" href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
+                        <?php bloginfo('name'); ?>
+                    </a>
+
+                    <?php endif; ?>
+
                     <?php
-    wp_nav_menu( array(
-        'theme_location'    => 'primary',
-        'depth'             => 2,
-        'container'         => 'div',
-        'container_class'   => 'collapse navbar-collapse',
-        'container_id'      => 'bs-navbar-collapse-1',
-        'menu_class'        => 'navbar-nav',
-        'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-        'walker'            => new WP_Bootstrap_Navwalker(),
-    ) );
-    ?>
-                </div>
-            </nav>
-            <!-- #site-navigation -->
-        </header><!-- #masthead -->
+} else {
+    the_custom_logo();
+}
+?>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="<?php esc_attr_e('Toggle navigation', 'movie-theme'); ?>">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- The WordPress Menu goes here -->
+                    <?php
+wp_nav_menu(
+    array(
+        'theme_location'  => 'primary',
+        'container_class' => 'collapse navbar-collapse',
+        'container_id'    => 'navbarNavDropdown',
+        'menu_class'      => 'navbar-nav ms-auto',
+        'fallback_cb'     => '',
+        'menu_id'         => 'main-menu',
+        'depth'           => 2,
+        'walker'          => new WP_Bootstrap_Navwalker(),
+    )
+);
+?>
+
+                </div><!-- .container(-fluid) -->
+
+            </nav><!-- #main-nav -->
+
+        </header><!-- #wrapper-navbar -->

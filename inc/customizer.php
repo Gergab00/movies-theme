@@ -56,6 +56,6 @@ function movies_theme_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function movies_theme_customize_preview_js() {
-	wp_enqueue_script( 'movies_theme-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), MOVIES_THEME, true );
+	wp_enqueue_script( 'movies_theme-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), MOVIES_THEME_VERSION, true );
 }
 add_action( 'customize_preview_init', 'movies_theme_customize_preview_js' );

@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="index" class="site-main container-fluid">
+	<main id="front-page" class="site-main container-lg">
 
 	<div class="row">
 		<div class="col-md-9">
