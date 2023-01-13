@@ -56,9 +56,9 @@ defined('ABSPATH') || exit;
                     <?php endif; ?>
 
                     <?php
-} else {
-    the_custom_logo();
-}
+                    } else {
+                        the_custom_logo();
+                    }
 ?>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
